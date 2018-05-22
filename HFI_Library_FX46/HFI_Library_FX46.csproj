@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\HFI_Library_FX46.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA73014C-5E80-4AF7-9734-5ED82499E749}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>HFI_Library_FX46</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <ApplicationVersion>3.2.6053.23249</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>PhoenixContact.HFI.Inline</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InterbusHandlingState.cs" />
+    <Compile Include="FirmwareService.cs" />
+    <Compile Include="FirmwareServiceList.cs" />
+    <Compile Include="HfiExtensions.cs" />
+    <Compile Include="UpdateProcessDataHandler.cs" />
+    <Compile Include="UpdateMailboxHandler.cs" />
+    <Compile Include="ControllerEventHandler.cs" />
+    <Compile Include="ControllerStartup.cs" />
+    <Compile Include="ControllerDiagnostic.cs" />
+    <Compile Include="StatusRegister.cs" />
+    <Compile Include="WatchdogMonitoringTime.cs" />
+    <Compile Include="IController.cs" />
+    <Compile Include="Controller_IBS_ETH.cs" />
+    <Compile Include="Controller_IBS_G4.cs" />
+    <Compile Include="InterbusDiagChangeHandler.cs" />
+    <Compile Include="InterbusDiagnostic.cs" />
+    <Compile Include="IInterbusG4.cs" />
+    <Compile Include="InterbusHandling.cs" />
+    <Compile Include="ConfirmationReceiveHandler.cs" />
+    <Compile Include="MessageClientState.cs" />
+    <Compile Include="MessageClientDiagnostic.cs" />
+    <Compile Include="MessageClient.cs" />
+    <Compile Include="WriteConfirmationReceiveHandler.cs" />
+    <Compile Include="ReadConfirmationReceiveHandler.cs" />
+    <Compile Include="EnableReadyHandler.cs" />
+    <Compile Include="PCP_Diagnostic.cs" />
+    <Compile Include="PCP.cs" />
+    <Compile Include="VarChangeHandler.cs" />
+    <Compile Include="VarType.cs" />
+    <Compile Include="PD_Length.cs" />
+    <Compile Include="Variable.cs" />
+    <Compile Include="VarInput.cs" />
+    <Compile Include="VarOutput.cs" />
+    <Compile Include="MessageClientList.cs" />
+    <Compile Include="RevisionInformation.cs" />
+    <Compile Include="FirmwareInformation.cs" />
+    <Compile Include="HostInformation.cs" />
+    <Compile Include="StartFirmwareInformation.cs" />
+    <Compile Include="HardwareInformation.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common_FX46\Common_FX46.csproj">
+      <Project>{47166a6e-2f8d-42fd-a554-51cfd45f66db}</Project>
+      <Name>Common_FX46</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBSG4_Driver_FX46\IBSG4_Driver_FX46.csproj">
+      <Project>{ad6694f8-1f40-4c23-8955-f59d8ebad78f}</Project>
+      <Name>IBSG4_Driver_FX46</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PxC_Util\PxC_Util.csproj">
+      <Project>{c5e93855-762e-42d9-897a-0eeb890eb59b}</Project>
+      <Name>PxC_Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

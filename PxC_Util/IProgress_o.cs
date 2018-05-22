@@ -1,0 +1,23 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: PhoenixContact.PxC_Library.Util.IProgress_o
+// Assembly: PxC_Util, Version=1.4.6053.23249, Culture=neutral, PublicKeyToken=bbf13850d99d956d
+// MVID: 18D5BDF8-0D3D-4138-A479-03DED5E34959
+// Assembly location: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\PxC_Util.dll
+
+namespace PhoenixContact.PxC_Library.Util
+{
+  public interface IProgress_o
+  {
+    void InitProcessWindow(string StateText, bool ShowProcessProgressBar);
+
+    bool SetTotalValue(int MaxValue, int ActualValue);
+
+    bool SetTotalValue(long MaxValue, long ActualValue);
+
+    bool SetProcessValue(int MaxValue, int ActualValue);
+
+    bool SetProcessValue(long MaxValue, long ActualValue);
+
+    event UpdateProgressBar OnUpdateProgressStatus;
+  }
+}

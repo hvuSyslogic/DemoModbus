@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\PxC_Util.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5E93855-762E-42D9-897A-0EEB890EB59B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>PxC_Util</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <ApplicationVersion>1.4.6053.23249</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>PhoenixContact.PxC_Library.Util</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="BinaryFormatter.cs" />
+    <Compile Include="CSV.cs" />
+    <Compile Include="CsvStrings.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="Diagnostic.cs" />
+    <Compile Include="PxCUtilStrings.cs" />
+    <Compile Include="EnvironmentInfo.cs" />
+    <Compile Include="ExceptionPxC.cs" />
+    <Compile Include="PxC_Extensions.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="IProgress.cs" />
+    <Compile Include="UpdateProgressBar.cs" />
+    <Compile Include="IProgress_o.cs" />
+    <Compile Include="Progress.cs" />
+    <Compile Include="Progress_o.cs" />
+    <Compile Include="RegistryRootKeys.cs" />
+    <Compile Include="RegistryAccess.cs" />
+    <Compile Include="RegistryAccessStrings.cs" />
+    <Compile Include="SortableBindingList`1.cs" />
+    <Compile Include="PropertyComparer`1.cs" />
+    <Compile Include="StateMachine`1.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WinUtils.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CsvStrings.resx" />
+    <EmbeddedResource Include="PxCUtilStrings.resx" />
+    <EmbeddedResource Include="RegistryAccessStrings.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

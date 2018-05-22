@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\DotNet Framework 2.0\HFI\Libraries\HFI_Library_FX20.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C03594C-2BF8-495E-AE77-20696CB39C05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>HFI_Library_FX20</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ApplicationVersion>2.1.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>PhoenixContact.HFI</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IBSG4_Driver_FX20">
+      <HintPath>lib\IBSG4_Driver_FX20.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="VarOutput.cs" />
+    <Compile Include="Controller_FL_BK.cs" />
+    <Compile Include="PCP.cs" />
+    <Compile Include="PCP_Diagnostic.cs" />
+    <Compile Include="EnableReadyHandler.cs" />
+    <Compile Include="ReadConfirmationReceiveHandler.cs" />
+    <Compile Include="WriteConfirmationReceiveHandler.cs" />
+    <Compile Include="VarInput.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="SvcWriter.cs" />
+    <Compile Include="SvcWriterReadyHandler.cs" />
+    <Compile Include="SvcWriterStartHandler.cs" />
+    <Compile Include="SvcWriterResult.cs" />
+    <Compile Include="Controller_IBS_G4.cs" />
+    <Compile Include="I_IBS_G4.cs" />
+    <Compile Include="IBS_Diagnostic.cs" />
+    <Compile Include="OnIBS_DiagChangeHandler.cs" />
+    <Compile Include="Variable.cs" />
+    <Compile Include="PD_Length.cs" />
+    <Compile Include="VarType.cs" />
+    <Compile Include="VarChangeHandler.cs" />
+    <Compile Include="Diagnostic.cs" />
+    <Compile Include="DiagnosticHandler.cs" />
+    <Compile Include="DiagnosticArgs.cs" />
+    <Compile Include="InterbusHandling.cs" />
+    <Compile Include="InterbusHandlingState.cs" />
+    <Compile Include="WatchdogMonitoringTime.cs" />
+    <Compile Include="StatusRegister.cs" />
+    <Compile Include="ControllerDiagnostic.cs" />
+    <Compile Include="ControllerStartup.cs" />
+    <Compile Include="UpdateMailboxHandler.cs" />
+    <Compile Include="UpdateProcessDataHandler.cs" />
+    <Compile Include="Controller_ILB_ETH.cs" />
+    <Compile Include="IController.cs" />
+    <Compile Include="MessageClient.cs" />
+    <Compile Include="MessageClientDiagnostic.cs" />
+    <Compile Include="MessageClientState.cs" />
+    <Compile Include="ConfirmationReceiveHandler.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controller_FL_BK.resx" />
+    <EmbeddedResource Include="Controller_IBS_G4.resx" />
+    <EmbeddedResource Include="Controller_ILB_ETH.resx" />
+    <EmbeddedResource Include="HFI_Controller_Interface.resx" />
+    <EmbeddedResource Include="HFI_Slave_Interface.resx" />
+    <EmbeddedResource Include="IBS_Diagnostic.resx" />
+    <EmbeddedResource Include="Slave_IBS_G4.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
