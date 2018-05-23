@@ -22,5 +22,17 @@ namespace HFI_Demo_Inline_CS.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.1")]
+        public string ipAddress {
+            get {
+                return ((string)(this["ipAddress"]));
+            }
+            set {
+                this["ipAddress"] = value;
+            }
+        }
     }
 }

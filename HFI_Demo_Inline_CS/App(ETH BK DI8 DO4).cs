@@ -76,7 +76,7 @@ namespace HFI_Demo_Inline_CS
 
             // Settings of the controller
             this.Controller.Description = "ETH BK DI8 DO4 for Demonstaration";
-            this.Controller.Connection = "10.250.130.105";
+            this.Controller.Connection = Properties.Settings.Default.ipAddress;
 
             this.Controller.Startup = ControllerStartup.PhysicalConfiguration;
 
