@@ -7,8 +7,9 @@
 using PhoenixContact.Common.Ticker;
 using PhoenixContact.PxC_Library.Util;
 using System;
+using System.Diagnostics;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Threading;
-
 namespace PhoenixContact.DDI
 {
   public class IBS_G4_Drv : ITick, IDisposable
@@ -44,6 +45,7 @@ namespace PhoenixContact.DDI
     private bool disposed;
     private IBS_G4_Drv.DriverState aktState;
     private IBS_G4_Drv.DriverState oldState;
+
 
     public IBS_G4_Drv(string Name)
     {
@@ -585,11 +587,15 @@ label_7:
         this.writeDataStartAddress = Address;
       if (Data != null && Data.Length > this.writeDataLength)
         this.writeDataLength = Data.Length;
-      return PhoenixContact.DDI.DDI.WriteData(this._dtiHandle, Address, Data);
+
+            Trace.WriteLine(string.Format("*Write: Handler: {0} Address: {1} Data {2}\n", this._dtiHandle, Address, new SoapHexBinary(Data).ToString()));
+
+            return PhoenixContact.DDI.DDI.WriteData(this._dtiHandle, Address, Data);
     }
 
     public int ReadData(int Address, ref byte[] Data)
     {
+            Trace.WriteLine(string.Format("*Read: Handler: {0} Address: {1} Data {2}\n", this._dtiHandle, Address, new SoapHexBinary(Data).ToString()));
       if (this._ready && this._dtiHandle > 0)
         return PhoenixContact.DDI.DDI.ReadData(this._dtiHandle, Address, ref Data);
       return -2;

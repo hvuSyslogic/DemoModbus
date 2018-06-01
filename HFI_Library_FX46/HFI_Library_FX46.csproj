@@ -7,10 +7,11 @@
     <ProjectGuid>{CA73014C-5E80-4AF7-9734-5ED82499E749}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>HFI_Library_FX46</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ApplicationVersion>3.2.6053.23249</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>PhoenixContact.HFI.Inline</RootNamespace>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

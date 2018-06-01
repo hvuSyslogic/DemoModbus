@@ -7,10 +7,11 @@
     <ProjectGuid>{AD6694F8-1F40-4C23-8955-F59D8EBAD78F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>IBSG4_Driver_FX46</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ApplicationVersion>3.2.6053.23249</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>PhoenixContact.DDI</RootNamespace>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +36,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
@@ -54,6 +55,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FlatAPIForDDI.cs" />
     <Compile Include="VersionInfo.cs" />
     <Compile Include="VersionInfoType.cs" />
     <Compile Include="ETH_NetFailModes.cs" />
@@ -71,6 +73,9 @@
       <Project>{c5e93855-762e-42d9-897a-0eeb890eb59b}</Project>
       <Name>PxC_Util</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

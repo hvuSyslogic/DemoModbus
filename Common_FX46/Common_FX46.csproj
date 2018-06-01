@@ -7,10 +7,11 @@
     <ProjectGuid>{47166A6E-2F8D-42FD-A554-51CFD45F66DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Common_FX46</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ApplicationVersion>1.3.6053.23249</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>PhoenixContact.Common</RootNamespace>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

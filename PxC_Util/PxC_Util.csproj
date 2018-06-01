@@ -7,10 +7,11 @@
     <ProjectGuid>{C5E93855-762E-42D9-897A-0EEB890EB59B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>PxC_Util</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ApplicationVersion>1.4.6053.23249</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>PhoenixContact.PxC_Library.Util</RootNamespace>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
