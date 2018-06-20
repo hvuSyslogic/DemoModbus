@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\hvu\EasyModbusTCP .NET Package V5.0\EasyModbusTCP .NET Package V5.0\EasyModbusLibrary for .NET (DLL)\EasyModbusLibrary for .NET (DLL)\EasyModbus.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0835D92C-B4C2-48B4-B723-D944A7B1D63E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>EasyModbus</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ApplicationVersion>5.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EasyModbus\EasyModbus2Mqtt.cs" />
+    <Compile Include="EasyModbus\ReadOrder.cs" />
+    <Compile Include="EasyModbus\FunctionCode.cs" />
+    <Compile Include="EasyModbus\ModbusClient.cs" />
+    <Compile Include="EasyModbus\ModbusProtocol.cs" />
+    <Compile Include="EasyModbus\NetworkConnectionParameter.cs" />
+    <Compile Include="EasyModbus\TCPHandler.cs" />
+    <Compile Include="EasyModbus\ModbusServer.cs" />
+    <Compile Include="EasyModbus\HoldingRegisters.cs" />
+    <Compile Include="EasyModbus\InputRegisters.cs" />
+    <Compile Include="EasyModbus\Coils.cs" />
+    <Compile Include="EasyModbus\DiscreteInputs.cs" />
+    <Compile Include="EasyModbus\StoreLogData.cs" />
+    <Compile Include="EasyModbus\Exceptions\SerialPortNotOpenedException.cs" />
+    <Compile Include="EasyModbus\Exceptions\ConnectionException.cs" />
+    <Compile Include="EasyModbus\Exceptions\FunctionCodeNotSupportedException.cs" />
+    <Compile Include="EasyModbus\Exceptions\QuantityInvalidException.cs" />
+    <Compile Include="EasyModbus\Exceptions\StartingAddressInvalidException.cs" />
+    <Compile Include="EasyModbus\Exceptions\ModbusException.cs" />
+    <Compile Include="EasyModbus\Exceptions\CRCCheckFailedException.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\IMqttNetworkChannel.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttClient.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttProtocolVersion.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttSslProtocols.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttSettings.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Fx.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttNetworkChannel.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\IPAddressUtility.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\MqttSslUtility.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Utility\QueueExtension.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Utility\TraceLevel.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Utility\WriteTrace.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Utility\Trace.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Session\MqttClientSession.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Session\MqttSession.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgBase.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgConnack.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgConnect.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgConnectEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgContext.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgFlow.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgState.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgDisconnect.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPingReq.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPingResp.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPuback.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPubcomp.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPublish.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPublishedEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPublishEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPubrec.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgPubrel.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgSuback.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgSubscribe.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgSubscribedEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgSubscribeEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgUnsuback.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgUnsubscribe.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgUnsubscribedEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Messages\MqttMsgUnsubscribeEventArgs.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Internal\InternalEvent.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Internal\MsgInternalEvent.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Internal\MsgPublishedInternalEvent.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Exceptions\MqttClientException.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Exceptions\MqttClientErrorCode.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Exceptions\MqttCommunicationException.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Exceptions\MqttConnectionException.cs" />
+    <Compile Include="uPLibrary\Networking\M2Mqtt\Exceptions\MqttTimeoutException.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

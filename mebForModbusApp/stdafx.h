@@ -14,5 +14,5 @@
 // TODO: reference additional headers your program requires here
 #pragma comment(lib, "mscoree.lib")
 
-#define IfFailRet(expr)                { hr = (expr); if(FAILED(hr)) return (hr); }
+#define IfFailRet(expr)                { m_hr = (expr); if(FAILED(m_hr)) return (m_hr); }
 #define IfNullFail(expr)                { if (!expr) return (E_FAIL); }

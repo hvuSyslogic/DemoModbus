@@ -54,7 +54,11 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CodeGenerated.cs" />
     <Compile Include="FlatAPIForDDI.cs" />
     <Compile Include="VersionInfo.cs" />
     <Compile Include="VersionInfoType.cs" />
@@ -77,5 +81,11 @@
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)$(Configuration)\*.dll D:\Source\Autotron\Branches\5.0\HardwiredIO\MEB_Windows\MEB_Core\MEB_CSharp\bin\$(Configuration) /C /R /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

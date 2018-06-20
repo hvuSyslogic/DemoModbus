@@ -17,32 +17,50 @@ namespace PhoenixContact.DDI
         /// <summary>
         /// a managed static method that gets called from native code
         /// </summary>
+        public static int Enable(string connectionName)
+        {
+            _handle = GetOpenNode();
+            return _handle;
+
+        }
+
+        public static int Disable(string connectionNameHandler)
+        {
+            _handle = CloseNode();
+            return _handle;
+        }
         public static int ManagedMethodCalledFromExtension(string args)
         {
             // need to return an integer: the length of the args string
             byte[] data = new byte[8] { 0,16,0,0,0,0,0,0 };
-             int addr = 2; int dCons = 1; int tempValue = 0;
+            byte[] readData = new byte[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+            int addr = 2; int dCons = 1; int tempValue = 0;
             switch (args)
             {
                 case "1":
+                    _handle = ReadData(addr, dCons, data);
+                    Trace.WriteLine(string.Format("*Read: Handler: {0} Address: {1} Data {2} --return value {3}\n", _dtiHandle, addr, new SoapHexBinary(readData).ToString(), _handle));
                     break;
-                default:
-                    _versionInfo = GetDDIVersionInfo();
-                    _handle = GetOpenNode();
-                    Thread.Sleep(50);
+                case "2":
                     for (int i = 0; i < 2; i++)
                     {
                         tempValue = 16 * i;
                         data[1] += (byte)tempValue;
                         _handle = WriteData(addr, dCons, data);
-                        Trace.WriteLine(string.Format("*Write: Handler: {0} Address: {1} Data {2} --return value {3}\n", _dtiHandle, addr, new SoapHexBinary(data).ToString(), _handle) );
-                        Thread.Sleep(50);
+                        Trace.WriteLine(string.Format("*Write: Handler: {0} Address: {1} Data {2} --return value {3}\n", _dtiHandle, addr, new SoapHexBinary(data).ToString(), _handle));
+                        Thread.Sleep(10);
                     }
-                    _handle = CloseNode();
-
                     break;
+                default:
+                    _versionInfo = GetDDIVersionInfo();
+                      break;
             }
             return args.Length;
+        }
+
+        private static int ReadData(int Address, int dCons, byte[] Data)
+        {
+            return PhoenixContact.DDI.DDI.ReadData(_dtiHandle, Address,ref Data);
         }
 
         private static int CloseNode()
@@ -70,16 +88,7 @@ namespace PhoenixContact.DDI
             return PhoenixContact.DDI.DDI.GetVersionDn2DDI();
         }
 
-        public static int Enable(string connectionName)
-        {
-            return 0;
-
-        }
-
-        public static int Disable(string connectionNameHandler)
-        {
-            return 0xAA;
-        }
+     
     }
     public enum ControllerDiagnosticFlatAPI
     {

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\HFI_Visu_FX46.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DEC4D23-EE3E-4500-8404-C8B6C3E855C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>HFI_Visu_FX46</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ApplicationVersion>3.2.6053.23250</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>PhoenixContact.HFI.Visualization</RootNamespace>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ctrlIBS_Diag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectControllerHandler.cs" />
+    <Compile Include="ctrlController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlMessageClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlVarInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlVarOutput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ctrlController.resx" />
+    <EmbeddedResource Include="ctrlIBS_Diag.resx" />
+    <EmbeddedResource Include="ctrlMessageClient.resx" />
+    <EmbeddedResource Include="ctrlVarInput.resx" />
+    <EmbeddedResource Include="ctrlVarOutput.resx" />
+    <EmbeddedResource Include="Graphics\picController.bmp" />
+    <EmbeddedResource Include="Graphics\picDiag.bmp" />
+    <EmbeddedResource Include="Graphics\picInput.bmp" />
+    <EmbeddedResource Include="Graphics\picMessage.bmp" />
+    <EmbeddedResource Include="Graphics\picOutput.bmp" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HFI_Library_FX46\HFI_Library_FX46.csproj">
+      <Project>{ca73014c-5e80-4af7-9734-5ed82499e749}</Project>
+      <Name>HFI_Library_FX46</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PxC_Util\PxC_Util.csproj">
+      <Project>{c5e93855-762e-42d9-897a-0eeb890eb59b}</Project>
+      <Name>PxC_Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
