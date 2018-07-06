@@ -1,0 +1,160 @@
+﻿//************************************************************************
+//
+//    This work contains valuable confidential and proprietary
+//    information.  Disclosure, use or reproduction without the
+//    written authorization of the company is prohibited.  This
+//    unpublished work by the company is protected by the laws of the
+//    United States and other countries.  If publication of the work
+//    should occur the following notice shall apply:
+//    Copyright Baldwin Technology Company, Inc. 1998/2018 All Rights Reserved
+//
+//    Creation Date: 06/18/2018
+//    Description: EasyModbusWrapper to work with Easymodbus.dll
+//    this class may not needed if the DDIDriver can read and write to the IOs using it
+//    backplan bus (Interbus).
+//
+//************************************************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EasyModbus;
+using System.Threading;
+using System.Diagnostics;
+
+namespace Qti.Autotron.ModbusAutotronAPI
+{
+    public class EasyModbusWrapper
+    {
+        private ModbusClient _modbusClient;
+        private Thread _taskKeepAliveModbusClient = null;
+        private bool KeepAliveModbusClient
+        { get; set; }
+        private int SleepingTime
+        { get; set; }
+        public EasyModbusWrapper(string IPAddress, int PortValue)
+        {
+            SleepingTime = 2000;
+            _modbusClient = new EasyModbus.ModbusClient(IPAddress, PortValue);
+            _modbusClient.ReceiveDataChanged += new EasyModbus.ModbusClient.ReceiveDataChangedHandler(UpdateReceiveData);
+            _modbusClient.SendDataChanged += new EasyModbus.ModbusClient.SendDataChangedHandler(UpdateSendData);
+            _modbusClient.ConnectedChanged += new EasyModbus.ModbusClient.ConnectedChangedHandler(UpdateConnectedChanged);
+            _modbusClient.LogFileFilename = "EasyModbusWrapper.txt";
+        }
+
+
+        public void Connect()
+        {
+            try
+            {
+                if (_modbusClient != null)
+                {
+                    if (_modbusClient.Connected)
+                    {
+                        _modbusClient.Disconnect();
+                        Thread.Sleep(50);
+                    }
+                    _modbusClient.Connect();
+                }
+            }
+            catch (EasyModbus.Exceptions.ModbusException ex)
+            {
+                FlatAPIForDDI.DataArray = new byte[] { 0xAA, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+                if (ex.Message.Contains("connection time"))
+                {
+                    Trace.WriteLine("IN KeepModbusClientConnecting NOT connected TIMEOUT" + ex.Message);
+                }
+                else
+                    Trace.WriteLine("IN KeepModbusClientConnecting NOT connected" + ex.Message);
+            }
+            return;
+
+        }
+        private void UpdateConnectedChanged(object sender)
+        {
+            var modbusClientObj = (ModbusClient)sender;
+
+            if (modbusClientObj != null)
+            {
+                if (!modbusClientObj.Connected)
+                {
+                    Trace.WriteLine("IN KeepModbusClientConnecting NOT connected");
+                    FlatAPIForDDI.DataArray = new byte[] { 0xFF, 0x10, 0xFF, 0x10, 0xFF, 0x10, 0xFF, 0x10 };
+                    if (_taskKeepAliveModbusClient != null)
+                    {
+                        KeepAliveModbusClient = false;
+                        _taskKeepAliveModbusClient.Abort(sender);
+                        _taskKeepAliveModbusClient = null;
+                    }
+                }
+                else
+                {
+                    Trace.WriteLine("IN KeepModbusClientConnecting connected");
+                    FlatAPIForDDI.DataArray = new byte[] { 0xAA, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+                    KeepAliveModbusClient = true;
+                    if (_taskKeepAliveModbusClient == null) // first time so start new thread
+                    {
+                        _taskKeepAliveModbusClient = new Thread(KeepModbusClientConnecting);
+                        if (_taskKeepAliveModbusClient != null)
+                        {
+                            _taskKeepAliveModbusClient.Start(sender);
+                        }
+                    }
+               }
+            }
+        }
+
+        private void KeepModbusClientConnecting(object sender)
+        {
+            Trace.WriteLine("IN KeepModbusClientConnecting START");
+            var modbusClientObj = (ModbusClient)sender;
+            // do work here
+            while (KeepAliveModbusClient)
+            {
+                try
+                {
+                    Thread.Sleep(SleepingTime);
+                   modbusClientObj.Connect();
+                }
+                catch (EasyModbus.Exceptions.ModbusException exModbus)
+                {
+                    if (exModbus.Message.Contains(@"connection time"))
+                    {
+                        Trace.WriteLine("IN KeepModbusClientConnecting **" + exModbus.Message);
+                        FlatAPIForDDI.DataArray = new byte[] { 0xFF, 0x10, 0xFF, 0x10, 0xFF, 0x10, 0xFF, 0x10 };
+                        if (modbusClientObj.Connected)
+                        {
+                            modbusClientObj.Disconnect();
+                            Thread.Sleep(50);
+                        }
+                        KeepAliveModbusClient =true;
+                        continue;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (modbusClientObj.Connected)
+                    {
+                        modbusClientObj.Disconnect();
+                        Thread.Sleep(50);
+                    }
+                    KeepAliveModbusClient = false;
+                    Trace.WriteLine("IN KeepModbusClientConnecting" + ex.Message);
+                }
+   
+            }
+        }
+
+        private void UpdateSendData(object sender)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void UpdateReceiveData(object sender)
+        {
+            //throw new NotImplementedException();
+        }
+    }
+}

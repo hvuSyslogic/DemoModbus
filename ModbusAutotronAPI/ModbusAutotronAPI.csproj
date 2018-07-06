@@ -38,9 +38,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyModbus">
-      <HintPath>..\..\..\..\..\..\..\..\hvu\EasyModbusTCP .NET Package V5.0\EasyModbusTCP .NET Package V5.0\EasyModbusLibrary for .NET (DLL)\EasyModbusLibrary for .NET (DLL)\EasyModbus.dll</HintPath>
-    </Reference>
     <Reference Include="HFI_Ticker_FX35, Version=1.3.1.25, Culture=neutral, PublicKeyToken=2c1b61f29bc31b0d, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\HFI_Ticker_FX35.dll</HintPath>
@@ -70,6 +67,12 @@
     <Content Include="Libraries\HFI_Ticker_FX35.dll" />
     <Content Include="Libraries\IBSG4_Driver_FX35.dll" />
     <Content Include="Libraries\PxC_Util.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyModbus\EasyModbus.csproj">
+      <Project>{0835d92c-b4c2-48b4-b723-d944a7b1d63e}</Project>
+      <Name>EasyModbus</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

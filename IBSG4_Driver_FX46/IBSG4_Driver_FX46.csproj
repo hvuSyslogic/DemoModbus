@@ -86,6 +86,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(ProjectDir)$(Configuration)\*.dll D:\Source\Autotron\Branches\5.0\HardwiredIO\MEB_Windows\MEB_Core\MEB_CSharp\bin\$(Configuration) /C /R /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
