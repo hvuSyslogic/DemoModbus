@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VS2015_CS_ETH_BK_DI8_DO4</RootNamespace>
-    <AssemblyName>VS2015 CS %28ETH BK DI8 DO4%29</AssemblyName>
+    <AssemblyName>EthBkDI8DO4</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ApplicationIcon>HFI_NET.ico</ApplicationIcon>
