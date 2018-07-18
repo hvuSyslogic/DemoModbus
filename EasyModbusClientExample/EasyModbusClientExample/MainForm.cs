@@ -28,6 +28,7 @@ namespace EasyModbusClientExample
     {
       this.InitializeComponent();
       this.modbusClient = new ModbusClient();
+      this.modbusClient.LogFileFilename = "hvuModbusClient.txt";
       this.modbusClient.ReceiveDataChanged += new ModbusClient.ReceiveDataChangedHandler(this.UpdateReceiveData);
       this.modbusClient.SendDataChanged += new ModbusClient.SendDataChangedHandler(this.UpdateSendData);
       this.modbusClient.ConnectedChanged += new ModbusClient.ConnectedChangedHandler(this.UpdateConnectedChanged);
