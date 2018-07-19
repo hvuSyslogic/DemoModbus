@@ -176,8 +176,25 @@ namespace PhoenixContact.HFI.Inline
         (byte) 1
       }, InterbusHandlingState.DoNotChangeState, 0));
     }
-
-    public void AlarmStop()
+        internal void ExpertModeDeActivate()
+        {
+            this.firmwareServiceList.AddFirmwareService(new FirmwareService(new byte[12]
+            {
+        (byte) 7,
+        (byte) 80,
+        (byte) 0,
+        (byte) 4,
+        (byte) 0,
+        (byte) 1,
+        (byte) 34,
+        (byte) 117,
+        (byte) 0,
+        (byte) 0,
+        (byte) 0,
+        (byte) 0
+            }, InterbusHandlingState.DoNotChangeState, 0));
+        }
+        public void AlarmStop()
     {
       this.firmwareServiceList.AddFirmwareService(new FirmwareService(new byte[4]
       {

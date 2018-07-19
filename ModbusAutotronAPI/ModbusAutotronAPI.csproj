@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Qti.Autotron.ModbusAutotronAPI</RootNamespace>
     <AssemblyName>ModbusAutotronAPI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -37,25 +37,11 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EasyModbus, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\WB\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="HFI_Ticker_FX35, Version=1.3.1.25, Culture=neutral, PublicKeyToken=2c1b61f29bc31b0d, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\HFI_Ticker_FX35.dll</HintPath>
@@ -77,9 +63,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockingHashSet.cs" />
+    <Compile Include="BlockingQueue.cs" />
+    <Compile Include="EasyModbusItem.cs" />
+    <Compile Include="EasyModbusItemComparer.cs" />
     <Compile Include="EasyModbusWrapper.cs" />
     <Compile Include="FlatAPIForDDI.cs" />
+    <Compile Include="Interface\IEasyModbusItem.cs" />
+    <Compile Include="Interface\IIOScanner.cs" />
+    <Compile Include="Interface\IEasyModbusWrapper.cs" />
+    <Compile Include="IOScanner.cs" />
+    <Compile Include="Interface\IVariable.cs" />
+    <Compile Include="PD_Length.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilExtensions.cs" />
+    <Compile Include="VarChangeHandler.cs" />
+    <Compile Include="Variable.cs" />
+    <Compile Include="VarInput.cs" />
+    <Compile Include="VarOutput.cs" />
+    <Compile Include="VarType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\HFI_Ticker_FX35.dll" />
@@ -87,10 +89,7 @@
     <Content Include="Libraries\PxC_Util.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EasyModbus\EasyModbus.csproj">
-      <Project>{0835d92c-b4c2-48b4-b723-d944a7b1d63e}</Project>
-      <Name>EasyModbus</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

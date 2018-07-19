@@ -24,25 +24,25 @@ namespace Qti.Autotron.ModbusAutotronAPI
 
     class IOScanner : IIOScanner
     {
+        //* original
         //#region *** Create input variables
-
-        //private VarInput _module2Input = new VarInput(0, PD_Length.Word, 8, 0);
-        //private VarInput _module4Input = new VarInput(1, PD_Length.Word, 8, 0);
-        //private VarInput _module5Input = new VarInput(2, PD_Length.Word, 8, 0);
-        //private VarInput _module6Input = new VarInput(3, PD_Length.Word, 8, 0);
+        /// <summary>
+        /// VarInput( in ByteAdress(BaseAddress), enumtype Process_Data_Length, Bit_Length_OfTheProcessDataItem,
+        /// BitOffset__OfTheProcessDataItem)
+        /// </summary>
+        /// <param name="Inputs"></param>
+        /// <param name="Outputs"></param>
+        private VarInput MODULE_2_IN = new VarInput(0, PD_Length.Word, 8, 0);
         //#endregion
         //#region *** Create output variables
+        private VarOutput MODULE_1_OUT = new VarOutput(0, PD_Length.Word, 4, 0);
+        private VarOutput MODULE_3_OUT = new VarOutput(2, PD_Length.Word, 8, 0);
 
-        //private VarOutput _module1Output = new VarOutput(0, PD_Length.Word, 4, 0);
-        //private VarOutput _module3Output = new VarOutput(2, PD_Length.Word, 8, 0);
-        //private VarOutput _module7Output = new VarOutput(6, PD_Length.Word, 8, 0);
-        //private VarOutput _module8Output = new VarOutput(7, PD_Length.Word, 8, 0);
-        //private VarOutput _module9Output = new VarOutput(8, PD_Length.Word, 8, 0);
-        //private VarOutput _module10Output = new VarOutput(9, PD_Length.Word, 8, 0);
-        //#endregion
-        public IOScanner(ICollection<int> Inputs, ICollection<int> Outputs)
+        //#endregion 
+        public IOScanner(string ConnectionDTI = @"IBETHIP[192.168.0.1]N1_D", string ConnectionMXI = @"IBETHIP[192.168.0.1]N1_M")
         {
-
+            _sConnectionDTI = ConnectionDTI;
+            _sConnectionMXI = ConnectionMXI;
 
         }
 
@@ -50,9 +50,8 @@ namespace Qti.Autotron.ModbusAutotronAPI
         {
             return false;
         }
-        Dictionary<int, Variable> _IOlist;
-        private byte[] _in_buffer;
-        private byte[] _out_buffer;
-        private byte[] _recvData;
+        string _sConnectionDTI = string.Empty;//@"IBETHIP[192.168.0.1]N1_D";
+        string _sConnectionMXI = string.Empty;
+        string s_sVersionInfo = string.Empty;
     }
 }

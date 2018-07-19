@@ -196,10 +196,11 @@ namespace PhoenixContact.DDI
         {
             lock (PhoenixContact.DDI.DDI.l_ReceiveMessage)
             {
-                Trace.WriteLine("In PhoenixContact.DDI.DDI.l_ReceiveMessage\n");
+                Trace.WriteLine(string.Format("In PhoenixContact.DDI.DDI.l_ReceiveMessage handle {0} \n",MXI_Handle) );
                 byte[] numArray = new byte[6];
                 if (MXI_Handle <= 0 || MXI_Handle > (int)ushort.MaxValue)
                 {
+                    Trace.WriteLine("**shoudl not see this ! DDI.l_ReceiveMessage\n");
                     UserID = 0;
                     Length = 0;
                     MsgType = 0;
@@ -219,6 +220,7 @@ namespace PhoenixContact.DDI
                 Length = Length << 8 | (int)numArray[2];
                 MsgType = (int)numArray[5];
                 MsgType = MsgType << 8 | (int)numArray[4];
+                Trace.WriteLine(string.Format("In PhoenixContact.DDI.DDI.l_ReceiveMessage handle{0} UserID {1} MsgType {2} \n", MXI_Handle, UserID, MsgType));
                 return num;
             }
         }

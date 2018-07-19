@@ -10,6 +10,7 @@ using PhoenixContact.PxC_Library.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 
@@ -407,7 +408,8 @@ namespace PhoenixContact.HFI.Inline
           this._ctrlClass.Intervall = this.UpdateProcessDataCycleTime;
           this._ctrlClass.Priority = ThreadPriority.Highest;
         }
-        this._ctrlClass.Enable();
+                Trace.WriteLine("*IBS_G4 Enable");
+                this._ctrlClass.Enable();
         return true;
       }
     }

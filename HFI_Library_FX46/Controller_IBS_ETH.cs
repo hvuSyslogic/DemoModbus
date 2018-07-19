@@ -10,6 +10,7 @@ using PhoenixContact.PxC_Library.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -413,6 +414,7 @@ namespace PhoenixContact.HFI.Inline
         this._ctrlClass.IB_Sync = false;
         this._ctrlClass.Intervall = this._ctrlUpdateTimeDTI;
         this._ctrlClass.Priority = ThreadPriority.Highest;
+        Trace.WriteLine("*IDS_ETH Enable");
         this._ctrlClass.Enable();
         return true;
       }
