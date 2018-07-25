@@ -7,6 +7,7 @@
 #include <atlcom.h>
 #include <string>
 #include "ModbusServices.h"
+#include "Win32SerialPort.h"
 
 // From this link https://blogs.msdn.microsoft.com/calvin_hsia/2015/02/27/call-c-code-from-your-legacy-c-code/
 extern  "C" int __declspec(dllexport) CALLBACK CallClrMethod(
@@ -80,25 +81,28 @@ int main()
 {
 	std::wstring strConnectionDTIMain = (L"IBETHIP[192.168.0.1]N1_D");
 	int Handle = 0;
+	Win32SerialPort* test = new Win32SerialPort();
+	test->Open()
+	// For testing Phoenix driver
 	//ModBusServices localModBusServices = ModBusServices::Instance();
-	DWORD dwResult;
-	byte data[8] =  { 0,16,0,0,0,0,0,0 };
-	byte ReadData[8] =  { 0,0,0,0,0,0,0,0 };
-	//HRESULT hr = CallClrMethod(
-	//	L"IBSG4_Driver_FX46.dll",  // name of DLL (can be fullpath)
-	//	L"PhoenixContact.DDI.FlatAPIForDDI",  // name of managed type
-	//	L"ManagedMethodCalledFromExtension", // name of static method
-	//	L"some args",
-	//	&dwResult);
-	ModBusServices::Instance().Enable(strConnectionDTIMain.c_str(), &dwResult);
-	Handle = (int)dwResult;
-	Sleep(50);
-	ModBusServices::Instance().WriteMessage(Handle, 8, 2, 1, data);
-	Sleep(10);
-	ModBusServices::Instance().ReadMessage(Handle, 8, 2, 1, ReadData);
-	Sleep(10);
-	ModBusServices::Instance().Disable(Handle, (int*)&dwResult);
-
+	//DWORD dwResult;
+	//byte data[8] =  { 0,16,0,0,0,0,0,0 };
+	//byte ReadData[8] =  { 0,0,0,0,0,0,0,0 };
+	////HRESULT hr = CallClrMethod(
+	////	L"IBSG4_Driver_FX46.dll",  // name of DLL (can be fullpath)
+	////	L"PhoenixContact.DDI.FlatAPIForDDI",  // name of managed type
+	////	L"ManagedMethodCalledFromExtension", // name of static method
+	////	L"some args",
+	////	&dwResult);
+	//ModBusServices::Instance().Enable(strConnectionDTIMain.c_str(), &dwResult);
+	//Handle = (int)dwResult;
+	//Sleep(50);
+	//ModBusServices::Instance().WriteMessage(Handle, 8, 2, 1, data);
+	//Sleep(10);
+	//ModBusServices::Instance().ReadMessage(Handle, 8, 2, 1, ReadData);
+	//Sleep(10);
+	//ModBusServices::Instance().Disable(Handle, (int*)&dwResult);
+	// for testing serial port.
 	return 0;
 }
 

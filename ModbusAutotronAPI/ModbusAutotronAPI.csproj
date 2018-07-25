@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EasyModbus, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\WB\packages\EasyModbusTCP.5.0.0\lib\EasyModbus.dll</HintPath>
+      <HintPath>..\IBSG4_Driver_FX46\packages\EasyModbusTCP.4.5.1\lib\EasyModbus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HFI_Ticker_FX35, Version=1.3.1.25, Culture=neutral, PublicKeyToken=2c1b61f29bc31b0d, processorArchitecture=x86">

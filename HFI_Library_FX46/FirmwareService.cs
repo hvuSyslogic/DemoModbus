@@ -5,6 +5,7 @@
 // Assembly location: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\HFI_Library_FX46.dll
 
 using System;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace PhoenixContact.HFI.Inline
 {
@@ -30,8 +31,12 @@ namespace PhoenixContact.HFI.Inline
       else
         this.SetCommandData(data);
     }
+        public override string ToString()
+        {
+            return (new SoapHexBinary(Command)).ToString();
+        }
 
-    public bool SetCommandData(byte[] command)
+        public bool SetCommandData(byte[] command)
     {
       lock (this.accessLock)
       {

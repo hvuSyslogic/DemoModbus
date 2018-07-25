@@ -5,6 +5,7 @@
 // Assembly location: D:\Program Files (x86)\Phoenix Contact\HFI 3.2\HFI_Tools\Libraries\HFI_Library_FX46.dll
 
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace PhoenixContact.HFI.Inline
 {
@@ -34,6 +35,10 @@ namespace PhoenixContact.HFI.Inline
         if (service == null)
           return;
         this.firmwareServiceList.Add(service);
+                if (Count >= 4)
+                    foreach (var i in firmwareServiceList)
+                       Trace.WriteLine( i.ToString());
+
       }
     }
 

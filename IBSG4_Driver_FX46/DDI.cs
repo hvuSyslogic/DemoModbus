@@ -188,6 +188,8 @@ namespace PhoenixContact.DDI
                 int num;
                 fixed (byte* msgBuf = Message)
                     num = PhoenixContact.DDI.DDI.DN_DDI_MXI_SndMsg(MXI_Handle, UserID, Length, MsgType, msgBuf);
+                Trace.WriteLine(string.Format("In PhoenixContact.DDI.DDI.l_SendMessage MsgType {0} Msg[] = {1} , Msg[1] = {2}\n", MsgType, Message[0], Message[1]));
+
                 return num;
             }
         }
