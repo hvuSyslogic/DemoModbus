@@ -82,7 +82,7 @@ int main()
 	std::wstring strConnectionDTIMain = (L"IBETHIP[192.168.0.1]N1_D");
 	int Handle = 0;
 	Win32SerialPort* test = new Win32SerialPort();
-	test->Open()
+	//test->Open()
 	// For testing Phoenix driver
 	//ModBusServices localModBusServices = ModBusServices::Instance();
 	//DWORD dwResult;

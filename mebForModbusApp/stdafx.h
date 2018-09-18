@@ -6,6 +6,7 @@
 #pragma once
 
 #include "targetver.h"
+#include <crtdbg.h>
 #include<Windows.h>
 #include <stdio.h>
 #include <tchar.h>
