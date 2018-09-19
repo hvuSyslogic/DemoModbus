@@ -50,7 +50,7 @@ ReceivedBufferForWin32Serial & ReceivedBufferForWin32Serial::operator=(const Rec
 	// TODO: insert return statement here
 	char* pcharaName = new char[SPI_RX_BUF_SIZE];
 	memset(pcharaName, '\0', SPI_RX_BUF_SIZE);
-	if (lhs.m_pReceiveBuffer != NULL && (&(lhs.m_pReceiveBuffer[lhs.m_iSize - 1]) != NULL))
+	if (lhs.m_pReceiveBuffer != nullptr && (&(lhs.m_pReceiveBuffer[lhs.m_iSize - 1]) != nullptr))
 	{
 		CopyMemory((LPVOID)pcharaName, lhs.m_pReceiveBuffer, lhs.m_iSize);
 		m_iSize = lhs.m_iSize;
@@ -66,6 +66,27 @@ unsigned char ReceivedBufferForWin32Serial::chksum8(char* pbuffer, int ilength)
 	unsigned char sum;       // nothing gained in using smaller types!
 	for (sum = 0; ilength != 0; ilength--)  sum += *(pbuffer++);   // parenthesis not required!
 	return sum;
+}
+
+bool ReceivedBufferForWin32Serial::GetASCIIBuffer(char* pASCIIBuffer, int iLength)
+{
+	char outbuffer[SPI_RX_BUF_SIZE * 2 + 1] = { '\0' };
+	const char* pHexTable = "0123456789ABCDEF";
+	int iPos = 0, iLengthToCopy = iLength -1;
+	if (pASCIIBuffer == nullptr || (&(pASCIIBuffer[iLength - 1]) == nullptr)) return false;
+	for (int i = 0; i<m_iSize; i++)
+	{
+		//assume buffer contains some binary data at this point
+		char cHex = m_pReceiveBuffer[i];
+		outbuffer[iPos++] = pHexTable[(cHex >> 4) & 0x0f];
+		outbuffer[iPos++] = pHexTable[cHex & 0x0f];
+	}
+	outbuffer[iPos] = '\0';
+	iLengthToCopy = min(iPos, iLengthToCopy);
+	CopyMemory(pASCIIBuffer, outbuffer, iLengthToCopy);
+	pASCIIBuffer[iLengthToCopy] = '\0';
+	return true;
+
 }
 
 ReceivedBufferForWin32Serial::~ReceivedBufferForWin32Serial()

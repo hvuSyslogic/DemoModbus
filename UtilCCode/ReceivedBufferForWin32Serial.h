@@ -23,9 +23,11 @@ public:
 	ReceivedBufferForWin32Serial(const ReceivedBufferForWin32Serial& lhs);
 	ReceivedBufferForWin32Serial& operator=(const ReceivedBufferForWin32Serial& that);
 	unsigned char chksum8(char* pbuffer, int ilength);
+	virtual bool GetASCIIBuffer(char* pASCIIBuffer, int ilength);
 	virtual ~ReceivedBufferForWin32Serial();
 	virtual char* GetBuffer() { return m_pReceiveBuffer; }
 	virtual int Size() { return m_iSize; }
+
 private:
 	char* m_pReceiveBuffer = nullptr;
 	int m_iSize = 0;
